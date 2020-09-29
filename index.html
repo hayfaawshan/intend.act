@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Today-Upcoming</title>
-		<link rel="stylesheet" href="css/mystyles.css" />
-	</head>
-	<body>
-		<!--NAV BAR FOR ROUTING (FEEL FREE TO EDIT ETC)-->
-		<nav class="navbar" role="navigation" aria-label="dropdown navigation">
-			<div class="navbar-item has-dropdown is-hoverable">
-				<a class="navbar-link"> NAV </a>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Today-Upcoming</title>
+    <link rel="stylesheet" href="css/mystyles.css" />
+  </head>
+  <body>
+    <!--NAV BAR FOR ROUTING (FEEL FREE TO EDIT ETC)-->
+    <nav class="navbar" role="navigation" aria-label="dropdown navigation">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link"> NAV </a>
 
-				<div class="navbar-dropdown">
-					<a class="navbar-item" href="journeys/journeys-home.html">
-						Journeys Home
-					</a>
-					<a class="navbar-item" href="community/community-home.html"> Community Home </a>
-				</div>
-			</div>
-		</nav>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="journeys/journeys-home.html">
+            Journeys Home
+          </a>
+          <a class="navbar-item" href="community/community-home.html"> Community Home </a>
+        </div>
+      </div>
+    </nav>
 
-		<h1 class="subtitle is-1" class="has-background-primary">
-			Today-Upcoming
-		</h1>
+    <section class="section">
+      <div id="react-container"></div>
+    </section>
 
-		<p class="subtitle">
-			Modern CSS framework based on
-			<a
-				href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
-				>Flexbox</a
-			>
-		</p>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
 
-		<div class="field">
-			<div class="control">
-				<input class="input" type="text" placeholder="Input" />
-			</div>
-		</div>
+      const items = [
+        { text: 'Speak up in a meeting', today: true },
+        { text: 'LGBTQ+ coffee', today: true },
+        { text: 'Read "Invisible Women"', today: false },
+        { text: 'Network on LinkedIn', today: false },
+        { text: 'Mentor meeting', today: false },
+        { text: 'Online seminar on bias', today: false }
+      ];
 
-		<div class="field">
-			<p class="control">
-				<span class="select">
-					<select>
-						<option>Select dropdown</option>
-					</select>
-				</span>
-			</p>
-		</div>
+      function TaskLine({ text }) {
+        return <li>{text} <input type="checkbox"/></li>;
+      }
 
-		<div class="buttons">
-			<a class="button is-primary">Primary</a>
-			<a class="button is-link">Link</a>
-		</div>
-	</body>
+      class TodayUpcomingPage extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          const todaysItems = items.filter(item => item.today);
+          const upcomingItems = items.filter(item => !item.today);
+          return (
+            <div>
+                <h1>Today &amp; Upcoming</h1>
+                <h2>today</h2>
+                <ul>
+                  {todaysItems.map(item => <TaskLine text={item.text} />)}
+                </ul>
+                <h2>upcoming</h2>
+                <ul>
+                  {upcomingItems.map(item => <TaskLine text={item.text} />)}
+                </ul>
+            </div>
+          );
+        }
+      }
+
+      const reactContainer = document.getElementById('react-container');
+      ReactDOM.render(React.createElement(TodayUpcomingPage), reactContainer);
+
+    </script>
+  </body>
 </html>
