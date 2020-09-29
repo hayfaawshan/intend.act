@@ -1,0 +1,103 @@
+.hero {
+  background-image: url(../assets/journey-bg.jpg);
+  width: 100%;
+  height: 210px;
+  
+	/* width: 1440px;
+	height: 182px;
+	left: 0px;
+	top: 30px;
+	padding-top: 40px; */
+}
+a:hover, a:visited, a:link, a:visited, a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
+.title.header {
+  font-family: 'Prata', serif;
+  /* font-size: 70px;
+  color: #ffffff;
+  position: absolute;
+  width: 686px;
+  height: 0.05rem;
+  font-style: normal;
+  font-weight: normal;
+  left: 2px;
+  top: 0.05rem;
+  bottom: 0.05rem; */
+  line-height: 72px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 85px;
+	letter-spacing: -0.01em;
+	color: #ffffff;
+
+}
+
+.tile {
+  font-family: 'Chivo', sans-serif;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  font-size: 55px;
+}
+
+
+.container.tiles {
+  padding-top: 10px;
+	padding-right: 100px;
+}
+
+.getting-started {
+  background: rgba(183, 141, 226, 0.64);
+}
+
+.new-intention {
+  background-image: url(../assets/intention-bg.jpg);
+}
+
+.find-trainings {
+  background-image: url(../assets/trainings-bg.jpg);
+}
+
+.reflections {
+  background-image: url(../assets/reflection-bg.jpg);
+}
+
+.tile.box.getting-started {
+  position: absolute;
+	width: 242px;
+	height: 212px;
+  left: 97px;
+  top: 300px;
+  padding: 20px;
+
+}
+
+.tile.box.new-intention {
+  position: absolute;
+	width: 242px;
+	height: 212px;
+  left: 440px;
+	top: 280px;
+  
+}
+.tile.box.find-trainings {
+  position: absolute;
+	width: 242px;
+	height: 212px;
+  left: 101px;
+  top: 567px;
+ 
+}
+
+.tile.box.reflections {
+  position: absolute;
+	width: 242px;
+	height: 212px;
+  left: 460px;
+	top: 550px;
+}
+
