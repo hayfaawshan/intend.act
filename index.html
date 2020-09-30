@@ -21,37 +21,55 @@
 			</div>
 		</nav>
 
-		<h1 class="subtitle is-1" class="has-background-primary">
-			Today-Upcoming
-		</h1>
+    <section class="section">
+      <div id="react-container"></div>
+    </section>
 
-		<p class="subtitle">
-			Modern CSS framework based on
-			<a
-				href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
-				>Flexbox</a
-			>
-		</p>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
 
-		<div class="field">
-			<div class="control">
-				<input class="input" type="text" placeholder="Input" />
-			</div>
+      const items = [
+        { text: 'Speak up in a meeting', today: true },
+        { text: 'LGBTQ+ coffee', today: true },
+        { text: 'Read "Invisible Women"', today: false },
+        { text: 'Network on LinkedIn', today: false },
+        { text: 'Mentor meeting', today: false },
+        { text: 'Online seminar on bias', today: false }
+      ];
+
+      function TaskLine({ text }) {
+        return <li>{text} <input type="checkbox"/></li>;
+      }
+
+      class TodayUpcomingPage extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          const todaysItems = items.filter(item => item.today);
+          const upcomingItems = items.filter(item => !item.today);
+          return (
+            <div>
+                <h1>Today &amp; Upcoming</h1>
+                <h2>today</h2>
+                <ul>
+                  {todaysItems.map(item => <TaskLine text={item.text} />)}
+                </ul>
+                <h2>upcoming</h2>
+                <ul>
+                  {upcomingItems.map(item => <TaskLine text={item.text} />)}
+                </ul>
 		</div>
+          );
+        }
+      }
 
-		<div class="field">
-			<p class="control">
-				<span class="select">
-					<select>
-						<option>Select dropdown</option>
-					</select>
-				</span>
-			</p>
-		</div>
+      const reactContainer = document.getElementById('react-container');
+      ReactDOM.render(React.createElement(TodayUpcomingPage), reactContainer);
 
-		<div class="buttons">
-			<a class="button is-primary">Primary</a>
-			<a class="button is-link">Link</a>
-		</div>
+    </script>
 	</body>
 </html>

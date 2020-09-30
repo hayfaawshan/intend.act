@@ -42,8 +42,98 @@
           <h2 class="subtitle">
             new intention
           </h2>
+          <div id="react-container"></div>
         </div>
       </div>
     </section>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+      const suggestedIntentions = [
+        'Invite someone to speak in a meeting',
+        'Read a chapter of "Invisible Women"',
+        'Challenge a discriminatory comment',
+      ];
+
+      class Intention {
+        constructor(text, date, targetCount, frequency) {
+          this.text = text;
+          this.date = date;
+          this.targetCount = targetCount;
+          this.completedCount = 0;
+          this.frequency = frequency;
+          this.addedTimestamp = new Date();
+        }
+      }
+
+      class IntentionsPage extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            intentionText: '',
+            currentIntentions: []
+          };
+
+          this.addClicked = this.addClicked.bind(this);
+          this.intentionTextChanged = this.intentionTextChanged.bind(this);
+        }
+
+        componentDidMount() {
+          this.setState({
+            ...this.state,
+            currentIntentions: JSON.parse(localStorage.getItem('intentions') || [])
+          });
+        }
+
+        render() {
+          const listItems = this.state.currentIntentions.map((intention) =>
+            <li key={intention.addedTimestamp}>{intention.text}</li>
+          );
+          return (
+            <div>
+              <h2>Write a new intention</h2>
+              <input type="text"
+                    placeholder="Enter new intention"
+                    value={this.state.intentionText}
+                    onChange={this.intentionTextChanged} />
+              <button onClick={this.addClicked}>Add</button>
+              <h2>Current Intentions</h2>
+              <ul>{listItems}</ul>
+            </div>
+          );
+        }
+
+        addClicked() {
+          if (this.state.intentionText === '') {
+            alert("You can't add a blank intention");
+          } else {
+            const tomorrow = new Date();
+            // The next midnight
+            tomorrow.setHours(24, 0, 0, 0);
+            const updatedIntentions = [
+                ...this.state.currentIntentions,
+                new Intention(this.state.intentionText, tomorrow, 5, 1)
+            ];
+            this.setState({
+              ...this.state,
+              currentIntentions: updatedIntentions,
+              intentionText: ''
+            });
+            localStorage.setItem('intentions', JSON.stringify(updatedIntentions));
+          }
+      }
+
+        intentionTextChanged(event) {
+          this.setState({ ...this.state, intentionText: event.target.value });
+        }
+      }
+
+      const reactContainer = document.getElementById('react-container');
+      ReactDOM.render(React.createElement(IntentionsPage), reactContainer);
+
+    </script>
 	</body>
 </html>
