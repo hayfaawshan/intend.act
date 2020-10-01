@@ -39,6 +39,8 @@
         { text: 'Online seminar on bias', today: false }
       ];
 
+
+
       function TaskLine({ text }) {
         return <li>{text} <input type="checkbox"/></li>;
       }
@@ -46,22 +48,50 @@
       class TodayUpcomingPage extends React.Component {
         constructor(props) {
           super(props);
+          this.state = {
+            intentionText: '',
+            currentIntentions: []
+          };
         }
 
+        componentDidMount() {
+          this.setState({
+            ...this.state,
+            currentIntentions: JSON.parse(localStorage.getItem('intentions') || [])
+          });
+        }
+
+
+        filterIntentions() {
+
+        }
         render() {
-          const todaysItems = items.filter(item => item.today);
-          const upcomingItems = items.filter(item => !item.today);
+          const intentionDates = this.state.currentIntentions.map(intention => intention.date);
+          const splitIntentionDates = intentionDates.map(date => date.split("T")[0]);
+          let todaysIntentions = []
+          let upcomingIntentions = []
+          for (let i = 0; i < splitIntentionDates.length; i++) {
+              if (splitIntentionDates[i] === (new Date()).toISOString().split("T")[0]) {
+              todaysIntentions.push(this.state.currentIntentions[i]);
+            } else {
+              upcomingIntentions.push(this.state.currentIntentions[i]);
+            }
+          }
+
           return (
             <div>
                 <h1>Today &amp; Upcoming</h1>
                 <h2>today</h2>
                 <ul>
-                  {todaysItems.map(item => <TaskLine text={item.text} />)}
+                  {todaysIntentions.map(intention => <TaskLine text={intention.text} />)}
                 </ul>
                 <h2>upcoming</h2>
                 <ul>
-                  {upcomingItems.map(item => <TaskLine text={item.text} />)}
+                  {upcomingIntentions.map(intention => <TaskLine text={intention.text} />)}
                 </ul>
+
+
+
 		</div>
           );
         }
