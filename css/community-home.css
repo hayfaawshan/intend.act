@@ -7,6 +7,7 @@
 a:hover, a:visited, a:link, a:visited, a{
   text-decoration: none;
   color: #ffffff;
+  text-align: left;
 }
 
 
@@ -24,4 +25,90 @@ a:hover, a:visited, a:link, a:visited, a{
   padding-top: 20px;
 
 }
+
+
+.tile {
+  font-family: 'Chivo', sans-serif;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  font-size: 42px;
+  display: inline-block;
+}
+
+
+.container.tiles {
+  padding-top: 10px;
+	padding-right: 100px;
+}
+
+.accountability {
+  background: #FFBD50;
+}
+
+.same-journey {
+  background-image: url(../assets/same-journey-bg.jpg);
+}
+
+.questions {
+  background: #FF7438;
+}
+
+.events {
+  background-image: url(../assets/events-bg.jpg);
+}
+
+.tile.accountability {
+  position: absolute;
+	width: 524px;
+	height: 90px;
+  left: 580px;
+  top: 253px;
+  padding: 20px;
+
+
+}
+
+.tile.accountability p {
+  text-align: right;
+}
+
+.tile.events p {
+  text-align: left;
+}
+.tile.same-journey{
+  position: absolute;
+	width: 525px;
+	height: 117px;
+  left: 801px;
+	top: 377px;
+  
+}
+.tile.questions {
+  position: absolute;
+	width: 514px;
+	height: 90px;
+  left: 510px;
+  top: 530px;
+  text-align: left;
+ 
+}
+
+.tile.events {
+  position: absolute;
+	width: 529px;
+	height: 90px;
+  left: 660px;
+	top: 650px;
+}
+
+
+.floatLeft {
+  position: absolute;
+  float:left;
+  margin-left:20px;
+  height: 400px;
+
+
+}
+
 

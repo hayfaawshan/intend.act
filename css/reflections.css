@@ -33,3 +33,26 @@ a:hover, a:visited, a:link, a:visited, a{
   text-align: right;
 
 }
+
+.floatRightPencil {
+  position: absolute;
+  float:right;
+  margin-left:20px;
+  height: 18px;
+  transform: rotate(145deg);
+  left: 1100px;
+  top: 510px;
+  z-index: 2;
+
+}
+
+.floatRightPaper {
+  float: left;
+  position: absolute;
+  left:  1000px;
+  top: 380px;
+  transform: rotate();
+  height: 405px;
+  z-index: 1;
+
+}

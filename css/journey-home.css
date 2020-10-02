@@ -13,9 +13,8 @@
 a:hover, a:visited, a:link, a:visited, a{
   text-decoration: none;
   color: #ffffff;
+
 }
-
-
 
 .title.header {
   font-family: 'Prata', serif;
@@ -95,4 +94,27 @@ a:hover, a:visited, a:link, a:visited, a{
 }
 
 
+.floatRightPencil {
+  position: absolute;
+  float:right;
+  margin-left:20px;
+  height: 40px;
+  transform: rotate(160deg);
+  left: 670px;
+  top: 170px;
+  /* padding: 20px;
+  left: 0%;
+  right: 19.91%;
+  top: 10.97%;
+  bottom: 21.97%; */
+}
 
+.floatRightPaper {
+  float: left;
+  position: absolute;
+  left:  970px;
+  top: 310px;
+  transform: rotate(-12deg);
+  height: 450px;
+
+}

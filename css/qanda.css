@@ -35,3 +35,13 @@ a:hover, a:visited, a:link, a:visited, a{
 
 
 }
+
+
+.floatLeft {
+  position: absolute;
+  float:left;
+  margin-left:20px;
+  height: 400px;
+
+
+}
