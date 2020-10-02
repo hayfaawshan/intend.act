@@ -87,11 +87,8 @@
                 </ul>
                 <h2>upcoming</h2>
                 <ul>
-                  {upcomingIntentions.map(intention => <TaskLine text={intention.text} />)}
+                  {upcomingIntentions.map(intention => <li>{intention.text} </li>)}
                 </ul>
-
-
-
 		</div>
           );
         }

@@ -74,17 +74,20 @@
           super(props);
           this.state = {
             intentionText: '',
+            intentionFrequency: '',
+            intentionTargetCount: '',
+            intentionDate: '',
             currentIntentions: []
           };
 
           this.addClicked = this.addClicked.bind(this);
-          this.intentionTextChanged = this.intentionTextChanged.bind(this);
+          this.handleChange = this.handleChange.bind(this);
         }
 
         componentDidMount() {
           this.setState({
             ...this.state,
-            currentIntentions: JSON.parse(localStorage.getItem('intentions') || [])
+            currentIntentions: JSON.parse(localStorage.getItem('intentions') || '[]')
           });
         }
 
@@ -96,9 +99,25 @@
             <div>
               <h2>Write a new intention</h2>
               <input type="text"
+                    name="intentionText"
                     placeholder="Enter new intention"
                     value={this.state.intentionText}
-                    onChange={this.intentionTextChanged} />
+                    onChange={this.handleChange} />
+              <input type="number"
+                    name="intentionFrequency"
+                    placeholder="Enter frequency in days"
+                    value={this.state.frequency}
+                    onChange={this.handleChange} />
+              <input type="number"
+                    name="intentionTargetCount"
+                    placeholder="Enter how many times you want to do this"
+                    value={this.state.targetCount}
+                    onChange={this.handleChange} />
+              <input type="date"
+                    name="intentionDate"
+                    placeholder="What date do you want to start?"
+                    value={this.state.date}
+                    onChange={this.handleChange} />
               <button onClick={this.addClicked}>Add</button>
               <h2>Current Intentions</h2>
               <ul>{listItems}</ul>
@@ -106,7 +125,8 @@
           );
         }
 
-        addClicked() {
+
+        addClicked(event) {
           if (this.state.intentionText === '') {
             alert("You can't add a blank intention");
           } else {
@@ -115,19 +135,26 @@
             tomorrow.setHours(24, 0, 0, 0);
             const updatedIntentions = [
                 ...this.state.currentIntentions,
-                new Intention(this.state.intentionText, tomorrow, 5, 1)
+                new Intention(this.state.intentionText,
+                this.state.intentionDate,
+                this.state.intentionTargetCount,
+                this.state.intentionFrequency)
             ];
             this.setState({
               ...this.state,
               currentIntentions: updatedIntentions,
-              intentionText: ''
+              intentionText: '',
+              intentionFrequency: '',
+              intentionDate: '',
+              intentionTargetCount: ''
             });
             localStorage.setItem('intentions', JSON.stringify(updatedIntentions));
+           // event.preventDefault();
           }
       }
 
-        intentionTextChanged(event) {
-          this.setState({ ...this.state, intentionText: event.target.value });
+        handleChange(event) {
+          this.setState({ ...this.state, [event.target.name]: event.target.value});
         }
       }
 
