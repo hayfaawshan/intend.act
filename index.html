@@ -61,20 +61,19 @@
           });
         }
 
-
-        filterIntentions() {
-
-        }
         render() {
           const intentionDates = this.state.currentIntentions.map(intention => intention.date);
           const splitIntentionDates = intentionDates.map(date => date.split("T")[0]);
-          let todaysIntentions = []
-          let upcomingIntentions = []
+          let todaysIntentions = [];
+          let upcomingIntentions = [];
+          let pastIntentions = [];
           for (let i = 0; i < splitIntentionDates.length; i++) {
               if (splitIntentionDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysIntentions.push(this.state.currentIntentions[i]);
-            } else {
+            } else if (splitIntentionDates[i] > (new Date()).toISOString().split("T")[0]) {
               upcomingIntentions.push(this.state.currentIntentions[i]);
+            } else {
+              pastIntentions.push(this.state.currentIntentions[i]);
             }
           }
 
