@@ -107,7 +107,19 @@ a:hover, a:visited, a:link, a:visited, a{
   float:left;
   margin-left:20px;
   height: 400px;
+  left: 60px
 
+
+}
+
+.arrowLeft {
+  position: absolute;
+  float: left;
+  margin-left:20px;
+  transform: rotate(180deg);
+  height: 100px;
+  left: 0px;
+  top: 400px;
 
 }
 

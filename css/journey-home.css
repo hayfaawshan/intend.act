@@ -118,3 +118,12 @@ a:hover, a:visited, a:link, a:visited, a{
   height: 450px;
 
 }
+
+.arrowRight{
+  position: absolute;
+  float:right;
+  margin-left:20px;
+  height: 100px;
+  left: 1350px;
+  top: 400px;
+}
