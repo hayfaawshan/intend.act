@@ -10,7 +10,11 @@ a:hover, a:visited, a:link, a:visited, a{
   text-align: left;
 }
 
-
+.intend-act {
+  font-size: 35px;
+  padding-left: 520px;
+  font-family:'Prata', serif;
+}
 
 .title.header {
   font-family: 'Prata', serif;

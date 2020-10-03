@@ -16,6 +16,12 @@ a:hover, a:visited, a:link, a:visited, a{
 
 }
 
+.intend-act {
+  font-size: 35px;
+  padding-left: 520px;
+  font-family:'Prata', serif;
+}
+
 .title.header {
   font-family: 'Prata', serif;
   font-style: normal;
