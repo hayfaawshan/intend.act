@@ -9,6 +9,11 @@ a:hover, a:visited, a:link, a:visited, a{
   color: #ffffff;
 }
 
+.intend-act {
+  font-size: 35px;
+  padding-left: 520px;
+  font-family:'Prata', serif;
+}
 
 
 .title.header {

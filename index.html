@@ -4,22 +4,67 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Today-Upcoming</title>
+    <title>Today-Upcoming</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
-		<!--NAV BAR FOR ROUTING (FEEL FREE TO EDIT ETC)-->
-		<nav class="navbar" role="navigation" aria-label="dropdown navigation">
-			<div class="navbar-item has-dropdown is-hoverable">
-				<a class="navbar-link"> NAV </a>
+    <!--Nav Bar-->
+		<section>
+			<div class="container.is-fullhd">
+				<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+					<div class="navbar-menu">
+						<div class="navbar-start">
+							<div class="navbar-brand">
+								<a class="navbar-item" href="https://codefirstgirls.org.uk/">
+									<img src="../assets/CFG.jpg" />
+								</a>
+								<a class="navbar-item">
+									<img src="../assets/vodafone.jpg" />
+                </a>
+                <h4 class="intend-act"> intend. act.</h4>
+              </div>
 
-				<div class="navbar-dropdown">
-					<a class="navbar-item" href="journeys/journeys-home.html">
-						Journeys Home
-					</a>
-					<a class="navbar-item" href="community/community-home.html"> Community Home </a>
-				</div>
-			</div>
-		</nav>
+						</div>
+
+						<div class="navbar-end">
+							<a class="navbar-item" href="community-home.html">
+									<img src="../assets/home.png">
+							</a>
+							<a class="navbar-item">
+								<img src="../assets/settings.jpg">
+							</a>
+						</div>
+					</div>
+					</div>
+				</nav>
+    </section>
+
+    <!--Hero Title -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title header">
+            today & upcoming
+          </h1>
+        </div>
+      </div>
+		</section>
+
+     <!--Clock Image -->
+     <figure class="media">
+        <img src="assets/clock.jpg" class="floatRight">
+    </figure>
+
+    <figure class="media">
+      <a href="journeys/journeys-home.html">
+        <img src="assets/arrow.jpg" class="arrowLeft">
+      </a>
+      <a href="community/community-home.html">
+        <img src="assets/arrow.jpg" class="arrowRight">
+      </a>
+
+  </figure>
 
     <section class="section">
       <div id="react-container"></div>
@@ -34,7 +79,7 @@
       const currentEvents = JSON.parse(localStorage.getItem('events') || '[]');
 
       function TaskLine({ text }) {
-        return <li>{text} <input type="checkbox"/></li>;
+        return <li class="intentionText">{text} <input class="checkboxLeft" type="checkbox"/></li>;
       }
 
       function TodayRow({text,date}) {

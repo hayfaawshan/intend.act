@@ -16,6 +16,12 @@ a:hover, a:visited, a:link, a:visited, a{
 
 }
 
+.intend-act {
+  font-size: 35px;
+  padding-left: 520px;
+  font-family:'Prata', serif;
+}
+
 .title.header {
   font-family: 'Prata', serif;
   font-style: normal;
@@ -117,4 +123,13 @@ a:hover, a:visited, a:link, a:visited, a{
   transform: rotate(-12deg);
   height: 450px;
 
+}
+
+.arrowRight{
+  position: absolute;
+  float:right;
+  margin-left:20px;
+  height: 100px;
+  left: 1350px;
+  top: 400px;
 }
