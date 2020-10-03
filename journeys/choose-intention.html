@@ -71,13 +71,14 @@
       ];
 
       class Intention {
-        constructor(text, date, targetCount, frequency) {
+        constructor(text, date, targetCount, frequency, theme) {
           this.text = text;
           this.date = date;
           this.targetCount = targetCount;
           this.completedCount = 0;
           this.frequency = frequency;
           this.addedTimestamp = new Date();
+          this.theme = theme;
         }
       }
 
@@ -89,6 +90,7 @@
             intentionFrequency: '',
             intentionTargetCount: '',
             intentionDate: '',
+            intentionTheme: '',
             currentIntentions: []
           };
 
@@ -130,7 +132,20 @@
                     placeholder="What date do you want to start?"
                     value={this.state.date}
                     onChange={this.handleChange} />
+              <select name="intentionTheme" onChange={this.handleChange}>
+                <option value="">--Please choose a theme--</option>
+                <option value="reading">Reading a book or article</option>
+                <option value="confidence">Confidence</option>
+                <option value="makingSpace">Making space for others</option>
+              </select>
               <button onClick={this.addClicked}>Add</button>
+              <h2>Here are some suggestions</h2>
+              <ul>
+                <li>Invite someone to speak in a meeting</li>
+                <li>Read a chapter of "Invisible Women"</li>
+                <li>Challenge a discriminatory comment</li>
+                <li>Reflect on mentee group</li>
+              </ul>
               <h2>Current Intentions</h2>
               <ul>{listItems}</ul>
             </div>
@@ -150,7 +165,8 @@
                 new Intention(this.state.intentionText,
                 this.state.intentionDate,
                 this.state.intentionTargetCount,
-                this.state.intentionFrequency)
+                this.state.intentionFrequency,
+                this.state.intentionTheme)
             ];
             this.setState({
               ...this.state,
@@ -158,10 +174,10 @@
               intentionText: '',
               intentionFrequency: '',
               intentionDate: '',
-              intentionTargetCount: ''
+              intentionTargetCount: '',
+              intentionTheme:'',
             });
             localStorage.setItem('intentions', JSON.stringify(updatedIntentions));
-           // event.preventDefault();
           }
       }
 
