@@ -46,7 +46,7 @@
           <h2 class="subtitle">
             new intention
           </h2>
-          
+
         </div>
       </div>
     </section>
@@ -152,7 +152,7 @@
                     placeholder="enter date"
                     value={this.state.date}
                     onChange={this.handleChange} />
-              <h2 class="new-theme"> intention theme </h2>   
+              <h2 class="new-theme"> intention theme </h2>
               <select name="intentionTheme" onChange={this.handleChange}>
                 <option value="">please choose a theme for our intention--</option>
                 <option value="reading">Reading a book or article</option>
@@ -164,20 +164,9 @@
                 <option value="allyship">Personal reflection</option>
               </select>
               <button onClick={this.addClicked}>Add</button>
-<<<<<<< HEAD
-              <h2 class="new-suggestion">or here are some suggestions</h2>
-              <ul class="suggestions">
-                <li>Invite someone to speak in a meeting</li>
-                <li>Read a chapter of "Invisible Women"</li>
-                <li>Challenge a discriminatory comment</li>
-                <li>Reflect on mentee group</li>
-              </ul>
-              <h2 class="current-intentions">Current Intentions</h2>
-=======
-              <h2>Here are some suggestions</h2>
-              <ul>{suggestionsList}</ul>
-              <h2>Current Intentions</h2>
->>>>>>> c4cfc76f613d266575992ded2cbb10385a41738b
+              <h2 class = "new-suggestion">or here are some suggestions</h2>
+              <ul class = "suggestions">{suggestionsList}</ul>
+              <h2 class = "current-intentions">Current Intentions</h2>
               <ul>{listItems}</ul>
             </div>
           );
