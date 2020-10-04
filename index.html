@@ -133,19 +133,24 @@
               if (splitIntentionDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysList.push(this.state.currentIntentions[i]);
             } else if (splitIntentionDates[i] > (new Date()).toISOString().split("T")[0]) {
+              parseInt(this.state.currentIntentions[i].date)
               upcomingList.push(this.state.currentIntentions[i]);
             } else {
               pastList.push(this.state.currentIntentions[i]);
+              pastList.sort();
             }
           }
 
           for (let i = 0; i < eventDates.length; i++) {
             if (eventDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysList.push(currentEvents[i]);
+              todaysList.sort();
             } else if (eventDates[i] > (new Date()).toISOString().split("T")[0]) {
               upcomingList.push(currentEvents[i]);
+              upcomingList.sort((a, b) => (a.date > b.date) ? 1 : -1);
             } else {
-              upcomingList.push(currentEvents[i]);
+              pastList.push(currentEvents[i]);
+              pastList.sort();
             }
           }
 
