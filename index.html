@@ -25,7 +25,6 @@
                 </a>
                 <h4 class="intend-act"> intend. act.</h4>
               </div>
-
 						</div>
 
 						<div class="navbar-end">
@@ -64,7 +63,6 @@
       <a href="community/community-home.html">
         <img src="assets/arrow.jpg" class="arrowRight">
       </a>
-
   </figure>
 
     <section class="section">
@@ -133,24 +131,23 @@
               if (splitIntentionDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysList.push(this.state.currentIntentions[i]);
             } else if (splitIntentionDates[i] > (new Date()).toISOString().split("T")[0]) {
-              parseInt(this.state.currentIntentions[i].date)
+              parseInt(this.state.currentIntentions[i].date);
               upcomingList.push(this.state.currentIntentions[i]);
+              upcomingList.sort((a, b) => (a.date > b.date) ? 1 : -1);
             } else {
               pastList.push(this.state.currentIntentions[i]);
-              pastList.sort();
             }
           }
 
           for (let i = 0; i < eventDates.length; i++) {
             if (eventDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysList.push(currentEvents[i]);
-              todaysList.sort();
             } else if (eventDates[i] > (new Date()).toISOString().split("T")[0]) {
+              parseInt(currentEvents[i].date);
               upcomingList.push(currentEvents[i]);
               upcomingList.sort((a, b) => (a.date > b.date) ? 1 : -1);
             } else {
               pastList.push(currentEvents[i]);
-              pastList.sort();
             }
           }
 
