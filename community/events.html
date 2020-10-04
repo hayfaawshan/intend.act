@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta text="viewport" content="width=device-width, initial-scale=1">
     <title> Find Events </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-community.png">
     <link rel="stylesheet" href="../css/custom.css">
     <link rel="stylesheet" href="../css/events.css">
-    
+
   </head>
   <body>
     <!--Navigation-->
@@ -47,6 +48,7 @@
           <h2 class="subtitle">
             find events
           </h2>
+          <div id="react-container"></div>
         </div>
       </div>
     </section>
@@ -56,6 +58,89 @@
         <img src="../assets/tea-cup.jpeg" class="floatLeft">
       </a>
     </figure>
-    
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+      class Event {
+        constructor(text, date, time, location) {
+          this.text = text,
+          this.date = date,
+          this.time = time,
+          this.location = location
+        }
+      }
+      const event1 = new Event("Mentor CFG hackathon teams", "2020-10-12", "9:00", "link");
+      const event2 = new Event("'Why I No Longer Talk To White People' group", "2020-10-15", "15:00", "Room 2");
+      const event3 = new Event("Black history month virtual summit", "2020-10-29", "10:00", "link");
+      const event4 = new Event("Working and Disabilities Q&A", "2020-11-03", "11:00", "link");
+
+      const eventsList = [event1, event2, event3, event4];
+      localStorage.setItem('events', JSON.stringify(eventsList));
+
+
+      class IntentionsPage extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+
+          const eventTexts = eventsList.map((event) => <td>{event.text}</td>);
+          const eventDates = eventsList.map((event) => <td>{event.date}</td>);
+          const eventTimes = eventsList.map((event) => <td>{event.time}</td>);
+          const eventLocations = eventsList.map((event) => <td>{event.location}</td>);
+
+
+          return (
+            <div>
+              <h2>Upcoming company events</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {eventTexts[0]}
+                    {eventDates[0]}
+                    {eventTimes[0]}
+                  </tr>
+                  <tr>
+                    {eventTexts[1]}
+                    {eventDates[1]}
+                    {eventTimes[1]}
+                  </tr>
+                  <tr>
+                    {eventTexts[2]}
+                    {eventDates[2]}
+                    {eventTimes[2]}
+                  </tr>
+                  <tr>
+                    {eventTexts[3]}
+                    {eventDates[3]}
+                    {eventTimes[3]}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+          );
+
+        localStorage.setItem('events', JSON.stringify(eventsList));
+
+        }
+      }
+
+      const reactContainer = document.getElementById('react-container');
+      ReactDOM.render(React.createElement(IntentionsPage), reactContainer);
+
+    </script>
   </body>
 </html>

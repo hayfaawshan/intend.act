@@ -46,10 +46,11 @@
           <h2 class="subtitle">
             new intention
           </h2>
-          <div id="react-container"></div>
+          
         </div>
       </div>
     </section>
+    <div id="react-container"></div>
 
     <figure class="media">
       <img src="../assets/pencil.jpeg" class="floatRightPencil">
@@ -64,31 +65,45 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
 
-      const suggestedIntentions = [
+      const suggestedIntentions = [ // list of suggestion intentions, can be easily changed
         'Invite someone to speak in a meeting',
         'Read a chapter of "Invisible Women"',
         'Challenge a discriminatory comment',
+        'Reflect on a mentee group'
       ];
+      const suggestionsList = suggestedIntentions.map(suggestion =>
+      <li>{suggestion}</li>);
+
+      function addDays(date, days) {
+        let result = new Date(date);
+        result.setDate(result.getDate() + parseInt(days));
+          return result;
+      }
 
       class Intention {
-        constructor(text, date, targetCount, frequency) {
+        constructor(text, date, targetCount, frequency, theme) {
           this.text = text;
           this.date = date;
           this.targetCount = targetCount;
           this.completedCount = 0;
           this.frequency = frequency;
-          this.addedTimestamp = new Date();
+          this.uniqueKey = Math.random();
+          this.theme = theme;
         }
       }
+      const initialFormValues = {
+        intentionText: '',
+        intentionFrequency: '',
+        intentionTargetCount: '',
+        intentionDate: '',
+        intentionTheme: ''
+      };
 
       class IntentionsPage extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
-            intentionText: '',
-            intentionFrequency: '',
-            intentionTargetCount: '',
-            intentionDate: '',
+            ...initialFormValues,
             currentIntentions: []
           };
 
@@ -105,33 +120,64 @@
 
         render() {
           const listItems = this.state.currentIntentions.map((intention) =>
-            <li key={intention.addedTimestamp}>{intention.text}</li>
+            <li key={intention.uniqueKey}>{intention.text}</li>
           );
           return (
             <div>
-              <h2>Write a new intention</h2>
+              <h2 class="new-intention">  enter a new intention</h2>
               <input type="text"
                     name="intentionText"
+                    class="enterIntention"
                     placeholder="Enter new intention"
                     value={this.state.intentionText}
                     onChange={this.handleChange} />
+              <h2 class="new-frequency"> how often? </h2>
               <input type="number"
+                    class="enterFrequency"
                     name="intentionFrequency"
-                    placeholder="Enter frequency in days"
+                    placeholder="enter frequency in days"
                     value={this.state.frequency}
                     onChange={this.handleChange} />
+              <h2 class="new-target"> how many times? </h2>
               <input type="number"
+                    class="enterTarget"
                     name="intentionTargetCount"
-                    placeholder="Enter how many times you want to do this"
+                    placeholder="enter target"
                     value={this.state.targetCount}
                     onChange={this.handleChange} />
+              <h2 class="new-date"> start date </h2>
               <input type="date"
                     name="intentionDate"
-                    placeholder="What date do you want to start?"
+                    class="enterDate"
+                    placeholder="enter date"
                     value={this.state.date}
                     onChange={this.handleChange} />
+              <h2 class="new-theme"> intention theme </h2>   
+              <select name="intentionTheme" onChange={this.handleChange}>
+                <option value="">please choose a theme for our intention--</option>
+                <option value="reading">Reading a book or article</option>
+                <option value="confidence">Confidence</option>
+                <option value="makingSpace">Making space for others</option>
+                <option value="connections">Connecting with others</option>
+                <option value="mentorship">Finding a mentor or mentee</option>
+                <option value="reflection">Personal reflection</option>
+                <option value="allyship">Personal reflection</option>
+              </select>
               <button onClick={this.addClicked}>Add</button>
+<<<<<<< HEAD
+              <h2 class="new-suggestion">or here are some suggestions</h2>
+              <ul class="suggestions">
+                <li>Invite someone to speak in a meeting</li>
+                <li>Read a chapter of "Invisible Women"</li>
+                <li>Challenge a discriminatory comment</li>
+                <li>Reflect on mentee group</li>
+              </ul>
+              <h2 class="current-intentions">Current Intentions</h2>
+=======
+              <h2>Here are some suggestions</h2>
+              <ul>{suggestionsList}</ul>
               <h2>Current Intentions</h2>
+>>>>>>> c4cfc76f613d266575992ded2cbb10385a41738b
               <ul>{listItems}</ul>
             </div>
           );
@@ -142,26 +188,37 @@
           if (this.state.intentionText === '') {
             alert("You can't add a blank intention");
           } else {
-            const tomorrow = new Date();
-            // The next midnight
-            tomorrow.setHours(24, 0, 0, 0);
-            const updatedIntentions = [
-                ...this.state.currentIntentions,
-                new Intention(this.state.intentionText,
-                this.state.intentionDate,
-                this.state.intentionTargetCount,
-                this.state.intentionFrequency)
-            ];
-            this.setState({
-              ...this.state,
-              currentIntentions: updatedIntentions,
-              intentionText: '',
-              intentionFrequency: '',
-              intentionDate: '',
-              intentionTargetCount: ''
-            });
-            localStorage.setItem('intentions', JSON.stringify(updatedIntentions));
-           // event.preventDefault();
+              this.setState(state => {
+                const newIntentions = [];
+
+                for (let i = 0; i < state.intentionTargetCount; i++) {
+                  const thisdate = addDays(this.state.intentionDate, this.state.intentionFrequency);
+                  if (i === 0) {
+                    newIntentions.push(new Intention(
+                      state.intentionText,
+                      state.intentionDate,
+                      state.intentionTargetCount,
+                      state.intentionFrequency,
+                      state.intentionTheme
+                    ));
+                  } else {
+                  newIntentions.push(new Intention(
+                    state.intentionText,
+                    state.intentionDate = new Date(thisdate).toISOString().split("T")[0],
+                    state.intentionTargetCount,
+                    state.intentionFrequency,
+                    state.intentionTheme
+                  ));
+                  }
+                }
+                const updatedIntentions = [...state.currentIntentions, ...newIntentions];
+                localStorage.setItem('intentions', JSON.stringify(updatedIntentions));
+                return {
+                  ...state,
+                  ...initialFormValues, // Reset form
+                  currentIntentions: updatedIntentions
+                };
+              });
           }
       }
 

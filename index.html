@@ -4,7 +4,8 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Today-Upcoming</title>
+    <title>Today & Upcoming</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-today.png">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/index.css">
 	</head>
@@ -24,7 +25,6 @@
                 </a>
                 <h4 class="intend-act"> intend. act.</h4>
               </div>
-              
 						</div>
 
 						<div class="navbar-end">
@@ -63,7 +63,6 @@
       <a href="community/community-home.html">
         <img src="assets/arrow.jpg" class="arrowRight">
       </a>
-      
   </figure>
 
     <section class="section">
@@ -75,65 +74,114 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
 
-      const items = [
-        { text: 'Speak up in a meeting', today: true },
-        { text: 'LGBTQ+ coffee', today: true },
-        { text: 'Read "Invisible Women"', today: false },
-        { text: 'Network on LinkedIn', today: false },
-        { text: 'Mentor meeting', today: false },
-        { text: 'Online seminar on bias', today: false }
-      ];
 
-
+      const currentEvents = JSON.parse(localStorage.getItem('events') || '[]');
 
       function TaskLine({ text }) {
         return <li class="intentionText">{text} <input class="checkboxLeft" type="checkbox"/></li>;
       }
+
+      function TodayRow({text,date}) {
+        return (
+          <tr>
+            <td>{text}</td>
+            <td>{date}</td>
+            <td><input type="checkbox"/></td>
+          </tr>
+        );
+      }
+
+      function UpcomingRow({text,date}) {
+        return (
+          <tr>
+            <td>{text}</td>
+            <td>{date}</td>
+          </tr>
+        );
+      }
+
 
       class TodayUpcomingPage extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
             intentionText: '',
-            currentIntentions: []
+            currentIntentions: [],
+            currentEvents: []
           };
         }
 
         componentDidMount() {
           this.setState({
             ...this.state,
-            currentIntentions: JSON.parse(localStorage.getItem('intentions') || [])
+            currentIntentions: JSON.parse(localStorage.getItem('intentions') || '[]'),
           });
         }
 
-
-        filterIntentions() {
-
-        }
         render() {
+
           const intentionDates = this.state.currentIntentions.map(intention => intention.date);
           const splitIntentionDates = intentionDates.map(date => date.split("T")[0]);
-          let todaysIntentions = []
-          let upcomingIntentions = []
+          const eventDates = currentEvents.map(event => event.date);
+          let todaysList = [];
+          let upcomingList = [];
+          let pastList = [];
+
           for (let i = 0; i < splitIntentionDates.length; i++) {
               if (splitIntentionDates[i] === (new Date()).toISOString().split("T")[0]) {
-              todaysIntentions.push(this.state.currentIntentions[i]);
+              todaysList.push(this.state.currentIntentions[i]);
+            } else if (splitIntentionDates[i] > (new Date()).toISOString().split("T")[0]) {
+              parseInt(this.state.currentIntentions[i].date)
+              upcomingList.push(this.state.currentIntentions[i]);
             } else {
-              upcomingIntentions.push(this.state.currentIntentions[i]);
+              pastList.push(this.state.currentIntentions[i]);
+              pastList.sort();
+            }
+          }
+
+          for (let i = 0; i < eventDates.length; i++) {
+            if (eventDates[i] === (new Date()).toISOString().split("T")[0]) {
+              todaysList.push(currentEvents[i]);
+              todaysList.sort();
+            } else if (eventDates[i] > (new Date()).toISOString().split("T")[0]) {
+              upcomingList.push(currentEvents[i]);
+              upcomingList.sort((a, b) => (a.date > b.date) ? 1 : -1);
+            } else {
+              pastList.push(currentEvents[i]);
+              pastList.sort();
             }
           }
 
           return (
-            <div class="container is-centered">
-                <h2 class="title-today"> today</h2>
-                <ul>
-                  {todaysIntentions.map(intention => <TaskLine text={intention.text} />)}
-                </ul>
-                <h2 class="title-upcoming">upcoming</h2>
-                <ul>
-                  {upcomingIntentions.map(intention => <li>{intention.text} </li>)}
-                </ul>
-		        </div>
+            <div>
+                <h1>Today &amp; Upcoming</h1>
+                <h2>today</h2>
+                <table>
+                  <thead>
+                      <tr>
+                          <th>Intention/Event</th>
+                          <th>Date</th>
+                          <th>Complete?</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {todaysList.map(item => <TodayRow text={item.text} date={item.date}/>)}
+                  </tbody>
+              </table>
+
+                <h2>upcoming</h2>
+                <table>
+                  <thead>
+                      <tr>
+                          <th>Intention/Event</th>
+                          <th>Date</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {upcomingList.map(item => <UpcomingRow text={item.text} date={item.date}/>)}
+                  </tbody>
+              </table>
+		</div>
           );
         }
       }

@@ -60,3 +60,146 @@ a:hover, a:visited, a:link, a:visited, a{
   z-index: 1;
 
 }
+
+.new-intention {
+  font-family: 'Chivo', sans-serif;
+  background-image: url(../assets/new-intention-bg.jpg);
+  position: absolute;
+	width: 420px;
+	height: 60px;
+  left: 38px;
+  top: 254px;
+  font-size: 45px;
+  color: white;
+  line-height: 74px;
+  letter-spacing: -0.05em;
+
+}
+
+.enterIntention {
+  width: 420px;
+  height: 30px;
+  margin-left: 38px;
+  margin-top: 100px;
+  
+}
+
+.new-frequency {
+  font-family: 'Chivo', sans-serif;
+  background-image: url(../assets/new-intention-bg.jpg);
+  font-size: 45px;
+  color: white;
+  letter-spacing: -0.05em;
+  width: 220px;
+  margin-left: 500px;
+  top: 254px;
+  position: absolute;
+  height: 60px;
+  text-align: center;
+}
+
+.enterFrequency {
+  width: 220px;
+  height: 30px;
+  margin-left: 38px;
+  margin-top: 100px;
+
+}
+
+ .new-target {
+  font-family: 'Chivo', sans-serif;
+  background-image: url(../assets/new-intention-bg.jpg);
+  font-size: 30px;
+  color: white;
+  letter-spacing: -0.05em;
+  width: 150px;
+  margin-left: 760px;
+  top: 254px;
+  position: absolute;
+  height: 60px;
+  line-height: 30px;
+  text-align: center;
+
+}
+
+.enterTarget {
+  width: 150px;
+  height: 30px;
+  margin-left: 42px;
+  margin-top: 100px;
+
+}
+
+.new-date {
+  font-family: 'Chivo', sans-serif;
+  background-image: url(../assets/new-intention-bg.jpg);
+  font-size: 35px;
+  color: white;
+  letter-spacing: -0.05em;
+  width: 150px;
+  margin-left: 950px;
+  top: 254px;
+  position: absolute;
+  height: 60px;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 10px;
+
+}
+
+.enterDate {
+  width: 150px;
+  height: 30px;
+  margin-left: 42px;
+  margin-top: 100px;
+
+}
+
+.new-theme {
+  font-family: 'Chivo', sans-serif;
+  background-image: url(../assets/new-intention-bg.jpg);
+  font-size: 30px;
+  color: white;
+  letter-spacing: -0.05em;
+  width: 250px;
+  margin-left: 1150px;
+  top: 254px;
+  position: absolute;
+  height: 60px;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 10px;
+
+}
+
+.new-suggestion {
+  font-family: 'Chivo', sans-serif;
+  background-image: url(../assets/new-intention-bg.jpg);
+  position: absolute;
+	width: 620px;
+	height: 60px;
+  left: 38px;
+  top: 394px;
+  font-size: 45px;
+  color: white;
+  line-height: 74px;
+  letter-spacing: -0.05em;
+
+}
+
+.suggestions {
+  font-family: 'Chivo', sans-serif;
+  color: black;
+  left: 38px;
+  top: 894px;
+
+
+}
+
+.current-intentions {
+  font-family: 'Chivo', sans-serif;
+  color: black;
+  left: 38px;
+  top: 1004px;
+
+}
