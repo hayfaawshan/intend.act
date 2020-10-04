@@ -46,10 +46,11 @@
           <h2 class="subtitle">
             new intention
           </h2>
-          <div id="react-container"></div>
+          
         </div>
       </div>
     </section>
+    <div id="react-container"></div>
 
     <figure class="media">
       <img src="../assets/pencil.jpeg" class="floatRightPencil">
@@ -111,42 +112,50 @@
           );
           return (
             <div>
-              <h2>Write a new intention</h2>
+              <h2 class="new-intention">  enter a new intention</h2>
               <input type="text"
                     name="intentionText"
+                    class="enterIntention"
                     placeholder="Enter new intention"
                     value={this.state.intentionText}
                     onChange={this.handleChange} />
+              <h2 class="new-frequency"> how often? </h2>
               <input type="number"
+                    class="enterFrequency"
                     name="intentionFrequency"
-                    placeholder="Enter frequency in days"
+                    placeholder="enter frequency in days"
                     value={this.state.frequency}
                     onChange={this.handleChange} />
+              <h2 class="new-target"> how many times? </h2>
               <input type="number"
+                    class="enterTarget"
                     name="intentionTargetCount"
-                    placeholder="Enter how many times you want to do this"
+                    placeholder="enter target"
                     value={this.state.targetCount}
                     onChange={this.handleChange} />
+              <h2 class="new-date"> start date </h2>
               <input type="date"
                     name="intentionDate"
-                    placeholder="What date do you want to start?"
+                    class="enterDate"
+                    placeholder="enter date"
                     value={this.state.date}
                     onChange={this.handleChange} />
+              <h2 class="new-theme"> intention theme </h2>   
               <select name="intentionTheme" onChange={this.handleChange}>
-                <option value="">--Please choose a theme--</option>
+                <option value="">please choose a theme for our intention--</option>
                 <option value="reading">Reading a book or article</option>
                 <option value="confidence">Confidence</option>
                 <option value="makingSpace">Making space for others</option>
               </select>
               <button onClick={this.addClicked}>Add</button>
-              <h2>Here are some suggestions</h2>
-              <ul>
+              <h2 class="new-suggestion">or here are some suggestions</h2>
+              <ul class="suggestions">
                 <li>Invite someone to speak in a meeting</li>
                 <li>Read a chapter of "Invisible Women"</li>
                 <li>Challenge a discriminatory comment</li>
                 <li>Reflect on mentee group</li>
               </ul>
-              <h2>Current Intentions</h2>
+              <h2 class="current-intentions">Current Intentions</h2>
               <ul>{listItems}</ul>
             </div>
           );
