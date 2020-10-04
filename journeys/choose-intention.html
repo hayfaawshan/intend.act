@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Choose Intention</title>
+    <title>Choose Intention</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-journey.png">
 		<link rel="stylesheet" href="../css/custom.css" />
 		<link rel="stylesheet" href="../css/choose-intentions.css"/>
 	</head>
@@ -152,9 +153,10 @@
                     placeholder="enter date"
                     value={this.state.date}
                     onChange={this.handleChange} />
-              <h2 class="new-theme"> intention theme </h2>
-              <select name="intentionTheme" onChange={this.handleChange}>
-                <option value="">please choose a theme for our intention--</option>
+              <h2 class="new-theme"> intention theme </h2>   
+              <select name="intentionTheme" class="enterTheme" onChange={this.handleChange}>
+                <option value="">choose a theme for intention</option>
+
                 <option value="reading">Reading a book or article</option>
                 <option value="confidence">Confidence</option>
                 <option value="makingSpace">Making space for others</option>
@@ -163,11 +165,12 @@
                 <option value="reflection">Personal reflection</option>
                 <option value="allyship">Personal reflection</option>
               </select>
-              <button onClick={this.addClicked}>Add</button>
-              <h2 class = "new-suggestion">or here are some suggestions</h2>
-              <ul class = "suggestions">{suggestionsList}</ul>
-              <h2 class = "current-intentions">Current Intentions</h2>
-              <ul>{listItems}</ul>
+              <button class="intentionButton" onClick={this.addClicked}> set intention </button>
+              <h2 class="new-suggestion">or here are some suggestions</h2>
+              <ul class="suggestions">{suggestionsList}</ul>
+              <h2 class="current-intentions">Current Intentions</h2>
+              <div class="intentions"> <ul>{listItems}</ul> </div>
+
             </div>
           );
         }
