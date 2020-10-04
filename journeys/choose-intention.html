@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Choose Intention</title>
+    <title>Choose Intention</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-journey.png">
 		<link rel="stylesheet" href="../css/custom.css" />
 		<link rel="stylesheet" href="../css/choose-intentions.css"/>
 	</head>
@@ -153,8 +154,8 @@
                     value={this.state.date}
                     onChange={this.handleChange} />
               <h2 class="new-theme"> intention theme </h2>   
-              <select name="intentionTheme" onChange={this.handleChange}>
-                <option value="">please choose a theme for our intention--</option>
+              <select name="intentionTheme" class="enterTheme" onChange={this.handleChange}>
+                <option value="">choose a theme for intention</option>
                 <option value="reading">Reading a book or article</option>
                 <option value="confidence">Confidence</option>
                 <option value="makingSpace">Making space for others</option>
@@ -162,22 +163,11 @@
                 <option value="mentorship">Finding a mentor or mentee</option>
                 <option value="reflection">Personal reflection</option>
               </select>
-              <button onClick={this.addClicked}>Add</button>
-<<<<<<< HEAD
+              <button class="intentionButton" onClick={this.addClicked}> set intention </button>
               <h2 class="new-suggestion">or here are some suggestions</h2>
-              <ul class="suggestions">
-                <li>Invite someone to speak in a meeting</li>
-                <li>Read a chapter of "Invisible Women"</li>
-                <li>Challenge a discriminatory comment</li>
-                <li>Reflect on mentee group</li>
-              </ul>
+              <ul class="suggestions">{suggestionsList}</ul>
               <h2 class="current-intentions">Current Intentions</h2>
-=======
-              <h2>Here are some suggestions</h2>
-              <ul>{suggestionsList}</ul>
-              <h2>Current Intentions</h2>
->>>>>>> c4cfc76f613d266575992ded2cbb10385a41738b
-              <ul>{listItems}</ul>
+              <div class="intentions"> <ul>{listItems}</ul> </div>
             </div>
           );
         }
