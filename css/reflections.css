@@ -10,7 +10,11 @@ a:hover, a:visited, a:link, a:visited, a{
   text-align: left;
 }
 
-
+.intend-act {
+  font-size: 35px;
+  padding-left: 520px;
+  font-family:'Prata', serif;
+}
 
 .title.header {
   font-family: 'Prata', serif;
@@ -56,21 +60,48 @@ a:hover, a:visited, a:link, a:visited, a{
 .tile.new-reflection {
   position: absolute;
 	width: 775px;
-	height: 88px;
-    left: 33px;
-	top: 287px;
+	height: 78px;
+  left: 50px;
+  top: 287px;
+  font-size: 45px;
 }
 
 .previous-reflections {
   background: #D1B6ED;
 }
 
+.reflection {
+  width:50%;
+   margin-top: 120px;
+  margin-left: 40px; 
+  height: 40px;
+  font-size: large;
+ 
+}
+
+.submit {
+  height: 40px;
+  font-size: medium;
+  width: 64px;
+
+}
+
 .tile.previous-reflections {
   position: absolute;
-	width: 775px;
-	height: 1px;
-    left: 33px;
-	top: 487px;
+  font-size: 45px;
+  width: 775px;
+  height: 78px;
+  left: 50px;
+  top: 437px;
+
+}
+
+.table-info {
+  width:54%;
+  margin-top:95px;
+  margin-left:50px;
+  font-size:22px;
+
 }
 
 .floatRightPencil {
@@ -95,3 +126,4 @@ a:hover, a:visited, a:link, a:visited, a{
   z-index: 1;
 
 }
+
