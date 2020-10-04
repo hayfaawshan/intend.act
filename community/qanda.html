@@ -68,43 +68,32 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
 
-      const previousQuestions = [
-        "‘Why I no longer talk to white people’ - reading  group?     3 answers",
-        "Do we have a Hispanic minority group?                                           1 answer",
-        "Seeking diverse opinions about remote working                11 answers",
-        "Who should I speak to about disability adjustments?          7 answers",
-        "Load more...",
-      ];
 
- 
-      const questionsList = previousQuestions.map(question =>
-      <li>{question}</li>);
-
-      function addDays(date, days) {
-        let result = new Date(date);
-        result.setDate(result.getDate() + parseInt(days));
-          return result;
-      }
-
-
-      class question {
-      constructor(text) {
-      this.text = text;
-      this.uniqueKey = Math.random();
+      class Question {
+        constructor(question, answer) {
+          this.question = question,
+          this.answer = answer,
+          this.uniqueKey = Math.random
         }
       }
 
-      const initialFormValues = {
-        questionText: '',
-      };
+      const question1 = new Question("Why am I no longer talk to white people - reading group", 3)
+      const question2 = new Question("Do we have a Hispanic minority group?  - reading group", 1)
+      const question3 = new Question("Seeking diverse opinions about remote working", 11)
+      const question4 = new Question("Who should I speak to about disability adjustments?", 7)
+
+      const previousQuestions = [question1, question2, question3, question4];
+
 
       class questionsPage extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
-            ...initialFormValues,
-            questionsList: []
-          };
+            questionText: '',
+            questionAnswer: '',
+            currentQuestions: []
+          }
+
 
           this.addClicked = this.addClicked.bind(this);
           this.handleChange = this.handleChange.bind(this);
@@ -113,28 +102,30 @@
         componentDidMount() {
           this.setState({
             ...this.state,
-            questionsList: JSON.parse(localStorage.getItem('questions') || '[]')
+            currentQuestions: JSON.parse(localStorage.getItem('questions') || '[]')
           });
         }
 
         render() {
-          const listItems = this.state.questionsList.map((question) =>
-            <li key={question.uniqueKey}>{question.text}</li>
+          const exampleQuestions = previousQuestions.map((question) =>
+            <li>{question.question}</li>
+          )
+          const listItems = this.state.currentQuestions.map((question) =>
+            <li key={question.uniqueKey}>{question.question}</li>
           );
-      
 
           return (
               <div style={{left: "500px", top: "250px" ,position:'absolute'}}>
-              
               <h2 className="new-intention">  ask an anonymous question</h2>
               <input type="text"
-                    name="newQuestion"
+                    name="questionText"
                     className="enterQuestion"
                     placeholder="ask a question"
                     value={this.state.questionText}
                     onChange={this.handleChange} />
+                    <button onClick={this.addClicked}>Add</button>
               <h2 className = "previous-questions">previous questions</h2>
-              <ul>{listItems}</ul>
+              <ul>{exampleQuestions}{listItems}</ul>
             </div>
           );
         }
@@ -144,19 +135,18 @@
           if (this.state.intentionText === '') {
             alert("You can't add a blank question");
           } else {
-              this.setState(state => {
-                const newQuestions = []
-                newQuestions.push(new Question(
-                  state.intentionText,
-                ));
-                const updatedQuestions = [...newQuestions];
-                localStorage.setItem('questions', JSON.stringify(updatedQuestions));
-                return {
-                  ...state,
-                  ...initialFormValues, // Reset form
-                  updatedQuestions
-                };
-              });
+            const updatedQuestions = [
+              ...this.state.currentQuestions,
+              new Question(this.state.questionText,
+              this.state.answer = 0)
+            ];
+            this.setState({
+              ...this.state,
+              currentQuestions: updatedQuestions,
+              questionText: '',
+              questionAnswer: ''
+            });
+            localStorage.setItem('questions', JSON.stringify(updatedQuestions));
           }
       }
 
@@ -169,6 +159,6 @@
       ReactDOM.render(React.createElement(questionsPage), reactContainer);
 
     </script>
-    
+
   </body>
 </html>
