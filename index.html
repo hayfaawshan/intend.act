@@ -70,13 +70,9 @@
     <script type="text/babel">
 
 
-      const currentEvents = JSON.parse(localStorage.getItem('events') || '[]');
+      const currentEvents = JSON.parse(localStorage.getItem('events') || '[]'); //getting events from local storage
 
-      function TaskLine({ text }) {
-        return <li class="intentionText">{text} <input class="checkboxLeft" type="checkbox"/></li>;
-      }
-
-      function TodayRow({text,date}) {
+      function TodayRow({text,date}) { // making the event or intention into a HTML row for today
         return (
           <tr>
             <td>{text}</td>
@@ -86,7 +82,7 @@
         );
       }
 
-      function UpcomingRow({text,date}) {
+      function UpcomingRow({text,date}) { //HTML row for upcoming - no checkbox
         return (
           <tr>
             <td>{text}</td>
@@ -109,31 +105,33 @@
         componentDidMount() {
           this.setState({
             ...this.state,
-            currentIntentions: JSON.parse(localStorage.getItem('intentions') || '[]'),
+            currentIntentions: JSON.parse(localStorage.getItem('intentions') || '[]'), // getting intentions from local storage
           });
         }
 
         render() {
 
-          const intentionDates = this.state.currentIntentions.map(intention => intention.date);
-          const splitIntentionDates = intentionDates.map(date => date.split("T")[0]);
-          const eventDates = currentEvents.map(event => event.date);
+          const intentionDates = this.state.currentIntentions.map(intention => intention.date); // creating list of just intention dates
+          const splitIntentionDates = intentionDates.map(date => date.split("T")[0]); // getting intention dates in correct format
+          const eventDates = currentEvents.map(event => event.date); // creating list of just event dates
           let todaysList = [];
           let upcomingList = [];
           let pastList = [];
 
+          // for loop handling whether intention goes to the today, upcoming or past lists
           for (let i = 0; i < splitIntentionDates.length; i++) {
               if (splitIntentionDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysList.push(this.state.currentIntentions[i]);
             } else if (splitIntentionDates[i] > (new Date()).toISOString().split("T")[0]) {
               parseInt(this.state.currentIntentions[i].date);
               upcomingList.push(this.state.currentIntentions[i]);
-              upcomingList.sort((a, b) => (a.date > b.date) ? 1 : -1);
+              upcomingList.sort((a, b) => (a.date > b.date) ? 1 : -1); // sorting the dates as strings
             } else {
               pastList.push(this.state.currentIntentions[i]);
             }
           }
 
+          // for loop handling whether event goes to the today, upcoming or past lists
           for (let i = 0; i < eventDates.length; i++) {
             if (eventDates[i] === (new Date()).toISOString().split("T")[0]) {
               todaysList.push(currentEvents[i]);
@@ -146,7 +144,7 @@
             }
           }
 
-          return (
+          return ( // HTML for the page layout, mapping today's list so only the text and date are visible
             <div>
                 <h2 class="todayHeader">today</h2>
                 <table class="todayTable">
@@ -163,7 +161,7 @@
               </table>
 
                 <h2 class="upcomingHeader">upcoming</h2>
-                <table class="upcomingTable"> 
+                <table class="upcomingTable">
                   <thead>
                       <tr>
                           <th>Intention/Event</th>

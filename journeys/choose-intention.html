@@ -73,15 +73,15 @@
         'Reflect on a mentee group'
       ];
       const suggestionsList = suggestedIntentions.map(suggestion =>
-      <li>{suggestion}</li>);
+      <li>{suggestion}</li>); // putting the suggestions into an HTML list
 
-      function addDays(date, days) {
+      function addDays(date, days) {// function to add days to a date
         let result = new Date(date);
         result.setDate(result.getDate() + parseInt(days));
           return result;
       }
 
-      class Intention {
+      class Intention { //class for a new intention
         constructor(text, date, targetCount, frequency, theme) {
           this.text = text;
           this.date = date;
@@ -112,7 +112,7 @@
           this.handleChange = this.handleChange.bind(this);
         }
 
-        componentDidMount() {
+        componentDidMount() { // mounting the component and adding it to local storage
           this.setState({
             ...this.state,
             currentIntentions: JSON.parse(localStorage.getItem('intentions') || '[]')
@@ -121,9 +121,9 @@
 
         render() {
           const listItems = this.state.currentIntentions.map((intention) =>
-            <li key={intention.uniqueKey}>{intention.text}</li>
+            <li key={intention.uniqueKey}>{intention.text}</li> // making the intention text into a list in HTML
           );
-          return (
+          return ( // HTML for inputs and page structure
             <div>
               <h2 class="new-intention">  enter a new intention</h2>
               <input type="text"
@@ -153,10 +153,9 @@
                     placeholder="enter date"
                     value={this.state.date}
                     onChange={this.handleChange} />
-              <h2 class="new-theme"> intention theme </h2>   
+              <h2 class="new-theme"> intention theme </h2>
               <select name="intentionTheme" class="enterTheme" onChange={this.handleChange}>
                 <option value="">choose a theme for intention</option>
-
                 <option value="reading">Reading a book or article</option>
                 <option value="confidence">Confidence</option>
                 <option value="makingSpace">Making space for others</option>
@@ -176,16 +175,16 @@
         }
 
 
-        addClicked(event) {
+        addClicked(event) { // add intention to the list
           if (this.state.intentionText === '') {
             alert("You can't add a blank intention");
           } else {
               this.setState(state => {
                 const newIntentions = [];
 
-                for (let i = 0; i < state.intentionTargetCount; i++) {
-                  const thisdate = addDays(this.state.intentionDate, this.state.intentionFrequency);
-                  if (i === 0) {
+                for (let i = 0; i < state.intentionTargetCount; i++) { // adding as many intentions as days inputted
+                  const thisdate = addDays(this.state.intentionDate, this.state.intentionFrequency); //add frequency to start date
+                  if (i === 0) { // creating the first day's intention as per start date
                     newIntentions.push(new Intention(
                       state.intentionText,
                       state.intentionDate,
@@ -194,17 +193,17 @@
                       state.intentionTheme
                     ));
                   } else {
-                  newIntentions.push(new Intention(
+                  newIntentions.push(new Intention( // creating subsequent intentions
                     state.intentionText,
-                    state.intentionDate = new Date(thisdate).toISOString().split("T")[0],
+                    state.intentionDate = new Date(thisdate).toISOString().split("T")[0], // putting date into correct format
                     state.intentionTargetCount,
                     state.intentionFrequency,
                     state.intentionTheme
                   ));
                   }
                 }
-                const updatedIntentions = [...state.currentIntentions, ...newIntentions];
-                localStorage.setItem('intentions', JSON.stringify(updatedIntentions));
+                const updatedIntentions = [...state.currentIntentions, ...newIntentions]; //adding the new intentions to the current ones
+                localStorage.setItem('intentions', JSON.stringify(updatedIntentions)); // uploading to local storage
                 return {
                   ...state,
                   ...initialFormValues, // Reset form
