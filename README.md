@@ -15,4 +15,5 @@ Once they have set up an account, each user of intend. act. has access to three 
 
 Related app features and content branch from the home pages, and the user can easily navigate back from the branches to the top-level home pages via the navigation bar.
 
-![HomePages](assets/read-me1.png)
+![Home Pages](/assets/read-me1.png)
+
