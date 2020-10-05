@@ -100,3 +100,49 @@ a:hover, a:visited, a:link, a:visited, a{
 li {
   font-size: 30px;
 }
+
+.todayHeader {
+  background-image: url(../assets/todayheader-bg.jpg);
+  font-family: 'Chivo', sans-serif;
+  line-height: 74px;
+  color: white;
+  font-size: 50px;
+  width: 895px;
+  margin-left: 200px;
+  top:1px;
+
+
+}
+
+.todayTable {
+  position: absolute;
+  font-size: 22px;
+  width: 995px;
+  height: 78px;
+  left: 250px;
+  top: 357px;
+}
+
+.upcomingHeader {
+  background-image: url(../assets/todayheader-bg.jpg);
+  font-family: 'Chivo', sans-serif;
+  line-height: 74px;
+  color: white;
+  font-size: 50px;
+  width: 895px;
+  margin-left: 200px;
+  margin-top: 117px;
+
+
+}
+
+.upcomingTable {
+  position: absolute;
+  font-size: 22px;
+  width: 895px;
+  height: 78px;
+  left: 250px;
+  top: 537px;
+
+
+}
