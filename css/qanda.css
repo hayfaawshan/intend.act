@@ -49,3 +49,58 @@ a:hover, a:visited, a:link, a:visited, a{
 
 
 }
+
+.previous-questions {
+  background:#FF7438;
+  position: absolute;
+	width: 675px;
+	height: 70px;
+  left: 600px;
+  top: 250px;
+  font-size: 50px;
+  font-family: 'Prata', serif;
+  line-height: 70px;
+  color: white;
+
+}
+
+.infoTable {
+  position: absolute;
+  font-size: 25px;
+  width: 895px;
+  height: 78px;
+  left: 600px;
+  top: 337px;
+}
+
+#question-header {
+  background: #FF7438;
+  position: absolute;
+	width: 675px;
+	height: 70px;
+  left: 600px;
+  top: 550px;
+  font-family: 'Prata', serif;
+  font-size: 50px;
+  color: white;
+}
+
+#enter-question {
+  width: 610px;
+  top: 650px;
+  left: 600px;
+  height: 40px;
+  font-size: large;
+  position: absolute;
+
+}
+
+.search {
+  height: 40px;
+  font-size: medium;
+  width: 64px;
+  position: absolute;
+  left: 1220px;
+  top: 650px;
+
+}

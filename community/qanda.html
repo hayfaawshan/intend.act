@@ -45,7 +45,7 @@
             community
           </h1>
           <h2 class="subtitle">
-            questions and answers
+            questions & answers
           </h2>
         </div>
       </div>
@@ -56,13 +56,13 @@
         <img src="../assets/tea-cup.jpeg" class="floatLeft">
       </a>
     </figure>
-    <style>
+    <!-- <style>
       h2.fixed {
         left: 450px;
         top: 250px;
       }
 
-    </style>
+    </style> -->
     <div id="react-container"></div>
 
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -117,17 +117,18 @@
           );
 
           return (
-              <div style={{left: "500px", top: "250px" ,position:'absolute'}}>
-              <h2 className="new-intention">  ask an anonymous question</h2>
+              <div>
+              <h2 className="new intention" id="question-header">  ask an anonymous question</h2>
               <input type="text"
                     name="questionText"
+                    id="enter-question"
                     className="enterQuestion"
                     placeholder="ask a question"
                     value={this.state.questionText}
                     onChange={this.handleChange} />
-                    <button onClick={this.addClicked}>Add</button>
+                    <button onClick={this.addClicked} class="search">Add</button>
               <h2 className = "previous-questions">previous questions</h2>
-              <ul>{exampleQuestions}{listItems}</ul>
+              <ul class="infoTable">{exampleQuestions}{listItems}</ul>
             </div>
           );
         }
