@@ -28,7 +28,7 @@ Upon creation of the employer account, employees will be invited to sign up indi
 ![Log-in Pages](assets/read-me2.png)
 Figure 2. The initial login pages used by employees to create a profile on their employer’s intend. act. account
 
-![Journey Pages](assets/read-me3.png)
+![Journey Pages](assets/read-me-3.png)
 Figure 3. Employees choose a diversity journey and can tailor their privacy and community settings 
 
 ### Journey
@@ -47,7 +47,7 @@ Reflect
 
 Throughout their journey, employees have access to a reflections journal, a private space to record their experiences and look back on their journey via their past thoughts and challenges. Users also have the option to publish any entry anonymously for the benefit of other users.
 
-![Journey-Walkthrough Pages](assets/read-me4.png)
+![Journey-Walkthrough Pages](assets/read-me-4.png)
 Figure 4: Flow of the journey pages
 
 This section at the moment is mostly static (except for the ‘choose an intention’ page which is responsive), although users can already navigate through the various journey pages (including the pages in ‘getting started’ which are all populated with content) and back to their journey home.
@@ -60,7 +60,7 @@ As they progress, employees are given the option to ‘check’ a tick box next 
 
 This section is currently entirely responsive, so users can input new intentions and these will appear directly on the today & upcoming page and can be checked as complete.
 
-![Journey-Walkthrough Pages](assets/read-me5.png)
+![Journey-Walkthrough Pages](assets/read-me-5.png)
 Figure 5: Key features of the today & upcoming intend. act. page
 
 Community
@@ -83,7 +83,7 @@ Find events
 
 This page allows the user to find a list of, and perform a search of, upcoming company events that are relevant to their current journey.
 
-![Community Pages](assets/read-me6.png)
+![Community Pages](assets/read-me-6.png)
 Figure 6: Key features of the community intend. act. pages
 
 This section at the moment is purely static, although users can already navigate through the various community pages and back to their community home.
@@ -94,7 +94,7 @@ intend. act. enables organisations to gather anonymised, grassroots data via the
 
 The organisation dashboard also allows the employer to make adjustments to the frequency with which they review the app’s usage, and to add/remove the journeys available to employees depending on the organisation’s context-specific D&I goals.
 
-![Org Dashboard Pages](assets/read-me7.png)
+![Org Dashboard Pages](assets/read-me-7.png)
 Figure 7: intend. act. organisational dashboard
 
 ## How to run the app and other technical information
@@ -106,24 +106,24 @@ For this project we used HTML/CSS (including some Bulma CSS components) for the 
 intend.act. was conceived, designed and developed by team 2 as part of the Code First Girls and Vodafone Diversity Hack. We are:
 
 
-![Hayfa](assets/read-me8.png)
+![Hayfa](assets/read-me-8.png)
 Hayfa
 
 Hayfa is a self-taught developer from London who has transitioned from biosciences into tech. She is passionate about highlighting the importance of humanity and diversity within technology as well as impacting user experiences.
 
-![Aaliya](assets/read-me9.png)
+![Aaliya](assets/read-me-9.png)
 Aaliya
 
 Aaliya is a final year electronic engineering student who is looking to learn more about software engineering after a couple of years of hardware. She is interested in how technology disrupts sectors and wants to be a Product Manager. 
 
 
-![Lonie](assets/read-me10.png)
+![Lonie](assets/read-me-10.png)
 Lonie
 
 Lonie is a doctoral researcher in Cyber Security looking to get back to coding following a few years focusing on research. She is interested in the way technology assists in telling stories and  is looking to get a Product Management position upon graduation.
 
 
-![Helen](assets/read-me11.png)
+![Helen](assets/read-me-11.png)
 
 Helen  
 
