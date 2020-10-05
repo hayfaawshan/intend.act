@@ -90,5 +90,6 @@ a:hover, a:visited, a:link, a:visited, a{
   position: absolute;
   float:left;
   margin-left:20px;
+  top: 250px;
   height: 400px;
 }
