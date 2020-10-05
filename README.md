@@ -26,6 +26,7 @@ Employers will initially be prompted to create a macro-level intend. act. accoun
 Upon creation of the employer account, employees will be invited to sign up individually. Each user will be asked for their work email address, location, job title, and seniority level; and they can choose to add any personal details about what makes them diverse members of the organisation. They will then be able to choose and embark upon a specific journey, and to define individual app settings regarding privacy. They can choose whether to be ‘discoverable’ by other employees and app users within the community pages of the app. (Users will continue to be able to adjust these privacy settings at any time.)
 
 ![Log-in Pages](assets/read-me2.png)
+
 Figure 2. The initial login pages used by employees to create a profile on their employer’s intend. act. account
 
 ![Journey Pages](assets/read-me-3.png)
