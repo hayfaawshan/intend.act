@@ -28,7 +28,7 @@
 						</div>
 
 						<div class="navbar-end">
-							<a class="navbar-item" href="community-home.html">
+							<a class="navbar-item" href="community/community-home.html">
 									<img src="../assets/home.png">
 							</a>
 							<a class="navbar-item">
@@ -50,12 +50,7 @@
         </div>
       </div>
 		</section>
-
-     <!--Clock Image -->
-     <figure class="media">
-        <img src="assets/clock.jpg" class="floatRight">
-    </figure>
-
+    <!-- Navigation Arrows -->
     <figure class="media">
       <a href="journeys/journeys-home.html">
         <img src="assets/arrow.jpg" class="arrowLeft">
@@ -153,13 +148,12 @@
 
           return (
             <div>
-                <h1>Today &amp; Upcoming</h1>
-                <h2>today</h2>
-                <table>
+                <h2 class="todayHeader">today</h2>
+                <table class="todayTable">
                   <thead>
                       <tr>
                           <th>Intention/Event</th>
-                          <th>Date</th>
+                          <th class="date">Date</th>
                           <th>Complete?</th>
                       </tr>
                   </thead>
@@ -168,8 +162,8 @@
                   </tbody>
               </table>
 
-                <h2>upcoming</h2>
-                <table>
+                <h2 class="upcomingHeader">upcoming</h2>
+                <table class="upcomingTable"> 
                   <thead>
                       <tr>
                           <th>Intention/Event</th>

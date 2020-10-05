@@ -48,3 +48,60 @@ a:hover, a:visited, a:link, a:visited, a{
 
 
 }
+
+.upcomingEvents {
+  background-image: url(../assets/find-events.jpg);
+  position: absolute;
+	width: 875px;
+	height: 70px;
+  left: 400px;
+  top: 227px;
+  font-size: 50px;
+  font-family: 'Prata', serif;
+  line-height: 70px;
+  color: white;
+
+}
+
+
+.eventsTable {
+  position: absolute;
+  font-size: 25px;
+  width: 895px;
+  height: 78px;
+  left: 400px;
+  top: 337px;
+}
+
+.tile.search-events{
+  background-image: url(../assets/find-events.jpg);
+  position: absolute;
+	width: 875px;
+	height: 70px;
+  left: 450px;
+  top: 600px;
+  font-family: 'Prata', serif;
+  font-size: 50px;
+  color: white;
+
+}
+
+.eventSearch {
+  width: 800px;
+  top: 700px;
+  left: 450px;
+  height: 40px;
+  font-size: large;
+  position: absolute;
+
+}
+
+.search {
+  height: 40px;
+  font-size: medium;
+  width: 64px;
+  position: absolute;
+  left: 1260px;
+  top: 700px;
+
+}

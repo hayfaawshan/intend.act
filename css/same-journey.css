@@ -27,6 +27,14 @@ a:hover, a:visited, a:link, a:visited, a{
 
 }
 
+.tile {
+  font-family: 'Chivo', sans-serif;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  font-size: 35px;
+  display: inline-block;
+}
+
 .subtitle {
   font-family: 'Prata', serif;
   line-height: 0.2rem;
@@ -36,14 +44,52 @@ a:hover, a:visited, a:link, a:visited, a{
 	/* letter-spacing: -0.01em; */
   color: #ffffff;
   text-align: right;
+}
 
+.container.tiles {
+  padding-top: 10px;
+	padding-right: 100px;
+}
 
+.search-others {
+  background: #FFBD50;
+}
+
+.tile.search-others {
+  position: absolute;
+	   width: 775px;
+	   height: 78px;
+   left: 550px;
+   top: 215px;
+}
+
+.table-info {
+    width: 65%;
+    margin-top: 120px;
+    margin-left: 650px;
+    font-size: 22px;
+}
+
+.other-people {
+    width:45%;
+    height: 40px;
+    font-size: 22px;
+}
+.search {
+    position: absolute;
+    margin-top: 30px;
+    left: 1250px;
+    height: 40px;
+    font-size: medium;
+    width: 64px;
+    color: #ffffff;
+    background: #FFBD50;
 }
 
 .floatLeft {
   position: absolute;
   float:left;
   margin-left:20px;
+  top: 250px;
   height: 400px;
 }
-

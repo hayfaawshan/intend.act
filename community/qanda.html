@@ -45,17 +45,116 @@
             community
           </h1>
           <h2 class="subtitle">
-            questions and answers
+            questions & answers
           </h2>
         </div>
       </div>
     </section>
-
+  <!--Hero Media-->
     <figure class="media">
       <a href="community-home.html">
         <img src="../assets/tea-cup.jpeg" class="floatLeft">
       </a>
     </figure>
-    
+    <div id="react-container"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+
+      class Question {
+        constructor(question, answer) {
+          this.question = question,
+          this.answer = answer,
+          this.uniqueKey = Math.random
+        }
+      }
+
+      const question1 = new Question("Why am I no longer talk to white people - reading group", 3)
+      const question2 = new Question("Do we have a Hispanic minority group?  - reading group", 1)
+      const question3 = new Question("Seeking diverse opinions about remote working", 11)
+      const question4 = new Question("Who should I speak to about disability adjustments?", 7)
+
+      const previousQuestions = [question1, question2, question3, question4];
+
+
+      class questionsPage extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            questionText: '',
+            questionAnswer: '',
+            currentQuestions: []
+          }
+
+
+          this.addClicked = this.addClicked.bind(this);
+          this.handleChange = this.handleChange.bind(this);
+        }
+
+        componentDidMount() {
+          this.setState({
+            ...this.state,
+            currentQuestions: JSON.parse(localStorage.getItem('questions') || '[]')
+          });
+        }
+
+        render() {
+          const exampleQuestions = previousQuestions.map((question) =>
+            <li>{question.question} <a href="community-home.html" style={{ color: 'black', textDecorationLine: 'underline'}}>{question.answer} answers</a></li>
+          )
+          const listItems = this.state.currentQuestions.map((question) =>
+            <li key={question.uniqueKey}>{question.question}</li>
+          );
+
+          return (
+              <div>
+              <h2 className="new intention" id="question-header">  ask an anonymous question</h2>
+              <input type="text"
+                    name="questionText"
+                    id="enter-question"
+                    className="enterQuestion"
+                    placeholder="ask a question"
+                    value={this.state.questionText}
+                    onChange={this.handleChange} />
+                    <button onClick={this.addClicked} class="search">Add</button>
+              <h2 className = "previous-questions">previous questions</h2>
+              <ul class="infoTable">{exampleQuestions}{listItems}</ul>
+            </div>
+          );
+        }
+
+
+        addClicked(event) {
+          if (this.state.intentionText === '') {
+            alert("You can't add a blank question");
+          } else {
+            const updatedQuestions = [
+              ...this.state.currentQuestions,
+              new Question(this.state.questionText,
+              this.state.answer = 0)
+            ];
+            this.setState({
+              ...this.state,
+              currentQuestions: updatedQuestions,
+              questionText: '',
+              questionAnswer: ''
+            });
+            localStorage.setItem('questions', JSON.stringify(updatedQuestions));
+          }
+      }
+
+        handleChange(event) {
+          this.setState({ ...this.state, [event.target.name]: event.target.value});
+        }
+      }
+
+      const reactContainer = document.getElementById('react-container');
+      ReactDOM.render(React.createElement(questionsPage), reactContainer);
+
+    </script>
+
   </body>
 </html>

@@ -52,12 +52,25 @@
         </div>
       </div>
     </section>
-
+   <!--Hero Media-->
     <figure class="media">
       <a href="community-home.html">
         <img src="../assets/tea-cup.jpeg" class="floatLeft">
       </a>
     </figure>
+
+    <div class="column">
+      <div class="tile is-ancestor">
+        <div class="tile search-events">
+          <h1> search events </h1>
+        </div>
+      </div>
+   </div>
+
+    <form>
+      <input type="text" class="eventSearch" name="search events" placeholder="enter keyword">
+      <input class="search" type="submit" value="Search">
+  </form>
 
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
@@ -96,8 +109,8 @@
 
           return (
             <div>
-              <h2>Upcoming company events</h2>
-              <table>
+              <h2 class="upcomingEvents">Upcoming company events</h2>
+              <table class="eventsTable">
                 <thead>
                   <tr>
                     <th>Event</th>
