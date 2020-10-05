@@ -106,26 +106,23 @@ For this project we used HTML/CSS (including some Bulma CSS components) for the 
 intend.act. was conceived, designed and developed by team 2 as part of the Code First Girls and Vodafone Diversity Hack. We are:
 
 
-![Hayfa](assets/read-me-8.png)
-Hayfa
+## Hayfa
 
 Hayfa is a self-taught developer from London who has transitioned from biosciences into tech. She is passionate about highlighting the importance of humanity and diversity within technology as well as impacting user experiences.
 
-![Aaliya](assets/read-me-9.png)
-Aaliya
+## Aaliya
+[Aaliya Github](https://github.com/aalipie)
 
 Aaliya is a final year electronic engineering student who is looking to learn more about software engineering after a couple of years of hardware. She is interested in how technology disrupts sectors and wants to be a Product Manager. 
 
-
-![Lonie](assets/read-me-10.png)
-Lonie
+## Lonie
+[Lonie Github](https://github.com/Lonies)
 
 Lonie is a doctoral researcher in Cyber Security looking to get back to coding following a few years focusing on research. She is interested in the way technology assists in telling stories and  is looking to get a Product Management position upon graduation.
 
 
-![Helen](assets/read-me-11.png)
-
-Helen  
+## Helen  
+[Helen Github] (https://github.com/helentatlow)
 
 Helen is a doctoral researcher in German Literature who has recently embarked upon her coding journey. Having indulged her love of syntax with a Code First Girls python course, she is looking to start her career in tech/fintech.
 
