@@ -30,6 +30,7 @@ Upon creation of the employer account, employees will be invited to sign up indi
 Figure 2. The initial login pages used by employees to create a profile on their employer’s intend. act. account
 
 ![Journey Pages](assets/read-me-3.png)
+
 Figure 3. Employees choose a diversity journey and can tailor their privacy and community settings 
 
 ### Journey
@@ -62,6 +63,7 @@ As they progress, employees are given the option to ‘check’ a tick box next 
 This section is currently entirely responsive, so users can input new intentions and these will appear directly on the today & upcoming page and can be checked as complete.
 
 ![Journey-Walkthrough Pages](assets/read-me-5.png)
+
 Figure 5: Key features of the today & upcoming intend. act. page
 
 ### Community
@@ -96,6 +98,7 @@ intend. act. enables organisations to gather anonymised, grassroots data via the
 The organisation dashboard also allows the employer to make adjustments to the frequency with which they review the app’s usage, and to add/remove the journeys available to employees depending on the organisation’s context-specific D&I goals.
 
 ![Org Dashboard Pages](assets/read-me-7.png)
+
 Figure 7: intend. act. organisational dashboard
 
 ## How to run the app and other technical information
