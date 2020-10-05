@@ -1,68 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# intend. act. 
 
-## Available Scripts
+## App purpose
+intend. act. is a web app designed to help organisations and their employees reflect and act upon their diversity and inclusion (D&I) practices. 
 
-In the project directory, you can run:
+Research shows that existing D&I training often lacks impact because it’s not sufficiently ‘context-specific or action-oriented’, and because ‘a lot of organizations think that training is a ‘one and done’ thing’ (https://envoy.com/blog/how-unconscious-bias-affects-workplace-experience/). intend. act. solves this problem by facilitating an ongoing, action-oriented D&I process that can be tailored to the context of each organisation and each employee. Featuring capabilities that allow users to set personal intentions, create new communities, and learn from each other, intend. act. takes users on an intersectional, holistic and personalised journey to grow as advocates for themselves and for others.
 
-### `npm start`
+## App users
+The primary users of the app will be the employees of an organisation. Each employee will have a personal account, via which they can access the features of the app. Each employee will be able to tailor the settings of their account to suit their own D&I development. It is intended that every employee of the organisation will have their own employee account, regardless of seniority. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In addition to this, the organisation’s leadership will have access to an employer-view dashboard, via which the leadership will be able to make macro changes to tailor the app to suit the organisation as a whole.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## App structure overview and navigation
+Once they have set up an account, each user of intend. act. has access to three principal home areas: the journey home, the today & upcoming home, and the community home. The three home pages are situated on the top navigation level of the app, and the user can easily navigate between them. 
 
-### `npm test`
+Related app features and content branch from the home pages, and the user can easily navigate back from the branches to the top-level home pages via the navigation bar.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home Pages](/assets/read-me1.png)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
