@@ -122,7 +122,7 @@ Lonie is a doctoral researcher in Cyber Security looking to get back to coding f
 
 
 ## Helen  
-[Helen Github] (https://github.com/helentatlow)
+[Helen Github](https://github.com/helentatlow)
 
 Helen is a doctoral researcher in German Literature who has recently embarked upon her coding journey. Having indulged her love of syntax with a Code First Girls python course, she is looking to start her career in tech/fintech.
 
