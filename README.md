@@ -1,5 +1,5 @@
 # intend. act. 
-
+## This app is not optimised for mobile/tablets and is not responsive, please view deployment on desktop.
 ## App purpose
 intend. act. is a web app designed to help organisations and their employees reflect and act upon their diversity and inclusion (D&I) practices. 
 
@@ -52,7 +52,7 @@ Throughout their journey, employees have access to a reflections journal, a priv
 ![Journey-Walkthrough Pages](assets/read-me-4.png)
 Figure 4: Flow of the journey pages
 
-This section at the moment is mostly static (except for the ‘choose an intention’ page which is responsive), although users can already navigate through the various journey pages (including the pages in ‘getting started’ which are all populated with content) and back to their journey home.
+This section at the moment is mostly static (except for the ‘choose an intention’ page which is responsive), although users can already navigate through the various journey pages (including the pages in ‘getting started’ which are all populated with content) and back to their journey home. 
 
 ### Today & Upcoming
 
